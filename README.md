@@ -1,1 +1,1 @@
-# backend
+# REKAR Accounting System Backend
