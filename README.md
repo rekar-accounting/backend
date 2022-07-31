@@ -1,6 +1,6 @@
-# REKAR Accounting System Backend
+# REKAR System
 
-REKAR is an accounting system developed REKAR team.
+REKAR is an ERP system developed by REKAR team.
 
 ## License
 
