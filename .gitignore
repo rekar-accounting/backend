@@ -17,7 +17,6 @@ vendor/
 # Go workspace file
 go.work
 
-
 # Compiled Object files, Static and Dynamic libs (Shared Objects)
 *.o
 *.a
@@ -51,9 +50,6 @@ _testmain.go
 # mac hidden files
 .DS_Store
 
-db-data
-.env
-
 #other
 node_modules/
 bower_components/
@@ -74,3 +70,5 @@ builds/**/images/*
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+.env
