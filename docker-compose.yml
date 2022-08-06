@@ -10,8 +10,8 @@ services:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
-    volumes:
-      - ./db-data/postgres/:/var/lib/postgresql/data/
+    # volumes:
+    #   - ./db-data/postgres/:/var/lib/postgresql/data/
 
   general-service:
     image: rekar2022/general-service
