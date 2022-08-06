@@ -3,27 +3,27 @@
 ##
 ## Build
 ##
-FROM golang:1.18.4-alpine3.16 AS build
+FROM golang:1.19.0-alpine3.16 AS build
 
 WORKDIR /app
 
-COPY go.mod ./
-COPY go.sum ./
+COPY go.mod .
+COPY go.sum .
 RUN go mod download
+COPY . .
 
-COPY *.go ./
 
-RUN go build -o /main
+
+
+RUN go build ./cmd/server/main.go
 
 ##
 ## Deploy
 ##
-FROM gcr.io/distroless/base-debian10
-
+# FROM gcr.io/distroless/base-debian10
+FROM alpine:latest 
 WORKDIR /
 
-COPY --from=build /main /main
+COPY --from=build ./app/main ./main
 
-USER nonroot:nonroot
-
-ENTRYPOINT ["/main"]
+ENTRYPOINT ["./main"]

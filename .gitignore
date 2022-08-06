@@ -50,6 +50,8 @@ _testmain.go
 # mac hidden files
 .DS_Store
 
+db-data
+
 #other
 node_modules/
 bower_components/
