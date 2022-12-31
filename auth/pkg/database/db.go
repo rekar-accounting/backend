@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/rekar-accounting/backend/cmd/config"
+	"github.com/rekar-accounting/backend/pkg/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -13,6 +13,6 @@ func Connect() (*gorm.DB, error) {
 
 		return nil, err
 	}
-	return db, err
+	return db, nil
 
 }

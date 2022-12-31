@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/rekar-accounting/backend/cmd/database"
+	"github.com/rekar-accounting/backend/pkg/database"
 )
 
 func main() {
