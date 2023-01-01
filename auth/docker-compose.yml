@@ -1,12 +1,5 @@
 version: "3"
 
-# services:
-#   general-service:
-#     build:
-#       dockerfile: ./Dockerfile
-#     restart: always
-#     ports:
-#       - "8080:80"
 services:
   postgres:
     image: "postgres:14.0"
@@ -19,22 +12,21 @@ services:
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
       POSTGRES_DB: ${DATABASE_NAME}
-    volumes:
-      - ./db-data/postgres/:/var/lib/postgresql/data/
-  app: 
-     image: rekar2022/general-service
-     container_name: general-service
-     environment:
-       - DATABASE_USER=${DATABASE_USER}  
-       - DATABASE_PASSWORD=${DATABASE_PASSWORD}
-       - DATABASE_NAME=${DATABASE_NAME}
-       - PORT=${PORT}
-       - HOST=${HOST}
-       - TIME_ZONE=${TIME_ZONE}
-    
-     build:  
-        context: .
-        dockerfile: Dockerfile
-     depends_on:
-       - postgres       
-    
+    # volumes:
+    #   - ./db-data/postgres/:/var/lib/postgresql/data/
+
+  general-service:
+    image: rekar2022/general-service
+    container_name: general-service
+    environment:
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+      - DATABASE_NAME=${DATABASE_NAME}
+      - PORT=${PORT}
+      - HOST=${HOST}
+      - TIME_ZONE=${TIME_ZONE}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - postgres
